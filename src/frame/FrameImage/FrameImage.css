@@ -1,0 +1,6 @@
+.frameimage{
+    opacity:1
+}
+.frameimage:hover{
+    opacity:0.7
+}
