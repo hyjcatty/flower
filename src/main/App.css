@@ -1,0 +1,12 @@
+.thinmenu{
+    position:fixed;
+    left:0;
+    top:0;
+    max-height:44px;
+    z-index:99;
+    backround-color:rgba(255,255,255,1)
+}
+.convas{
+    position:relative;
+    z-index:0;
+}
