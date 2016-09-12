@@ -20,7 +20,7 @@ export default class SearchBar extends Component {
         this.state = {
             searchword:"", // username
             placeholder:"Search for...",
-            width:600
+            width:300
         };
     }
     updatesearchword(searchword){
@@ -33,11 +33,12 @@ export default class SearchBar extends Component {
         //var Icon = require('react-font-awesome').Icon;
         return (
             <div className="form-group top_search">
-                <div  className="input-group" style={{position:"relative"}}>
-                    <input type="text" className="form-control" placeholder={this.state.placeholder} style={{float:"left",width:this.state.width,display:"inline"}} >
+                <div  className="input-group-sm" style={{position:"relative",height: "32px"}}>
+                    <input type="text" className="form-control" placeholder={this.state.placeholder} style={{float:"left",width:this.state.width,display:"inline",height: "32px"}} >
+
                     </input>
-                    <span className="input-group-btn" style={{display:"inline",height: "48px"}}>
-                        <button className="btn btn-clear" type="button" style={{display:"inline",height: "48px"}}><i className="fa fa-search"> </i></button>
+                    <span className="input-group-btn" style={{display:"inline"}}>
+                        <button className="btn btn-clear" type="button" style={{display:"inline",height: "44px"}}><i className="fa fa-search"> </i></button>
                     </span>
                 </div>
             </div>

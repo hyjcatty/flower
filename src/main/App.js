@@ -10,6 +10,8 @@ import classNames from 'classnames';
 import LineContainer from "./../container/LineContainer/LineContainer";
 import SearchBar from "../menu/bar/SearchBar/SearchBar"
 import LogoBar from "../menu/bar/LogoBar/LogoBar"
+import LoginBar from "../menu/bar/LoginBar/LoginBar"
+import ThinMenu from "../menu/ThinMenu/ThinMenu"
 
 
 class App extends Component{
@@ -23,6 +25,12 @@ class App extends Component{
         this.refs.logobar.updatelogo(logourl,logolink)
         this.refs.logobar.updatelogomenues(logomenues)
     }
+    initializeLoginbar1(prop){
+        this.refs.loginbar1.updateprop(prop)
+    }
+    initializeLoginbar2(prop){
+        this.refs.loginbar2.updateprop(prop)
+    }
 
     updateprop(prop){
         this.refs.singleContainer.append_list(prop);
@@ -31,15 +39,28 @@ class App extends Component{
     getheight(){
         return this.refs.singleContainer.getheight();
     }
+    initializeThinMenu(prop1,prop2,prop3){
+        this.refs.thinmenu.updateLogoBarprop(prop1);
+        this.refs.thinmenu.updateSearchBarprop(prop2);
+        this.refs.thinmenu.updateLoginBarprop(prop3);
+    }
     render() {
         return(
-            <div>
-            <div>
-                <LogoBar ref="logobar"/>
-                <SearchBar ref="searchbar"/>
-                <LineContainer ref="singleContainer"/>
-            </div>
+            <div >
+                <div className="thinmenu">
+                    <ThinMenu ref="thinmenu" />
                 </div>
+                <div className="convas">
+
+                    <LineContainer ref="singleContainer"/>
+                </div>
+                <div>
+                    <LoginBar key ="test_loginbar1"  ref="loginbar1"/>
+                    <LoginBar key ="test_loginbar2" ref="loginbar2"/>
+                    <LogoBar key ="test_logobar" ref="logobar"/>
+                    <SearchBar key ="test_searchbar" ref="searchbar"/>
+                    </div>
+            </div>
         );
     }
 
@@ -70,9 +91,9 @@ for(let i=0;i<5;i++){
 
 }
 var logomenu = [];
-for(let i=0;i<4;i++){
+for(let i=0;i<3;i++){
     let badge = "";
-    if(i==3) badge="new"
+    if(i==2) badge="new"
     let tempmenuitem={
         link:"#",
         name:"menu1",
@@ -81,6 +102,30 @@ for(let i=0;i<4;i++){
     logomenu.push(tempmenuitem);
 }
 app_handle.initializeLogobar("./svg/huabanlogo.svg","#",logomenu);
+var prop1={
+    iflogin:true,
+    username:"hyj",
+    userurl:"#",
+    userpic:"./owner/owner.jpg"
+}
+var prop2={
+    iflogin:false,
+    username:"hyj",
+    userurl:"#",
+    userpic:"./owner/owner.jpg"
+}
+app_handle.initializeLoginbar1(prop1);
+app_handle.initializeLoginbar2(prop2);
+var logoprop={
+    logourl:"./svg/huabanlogo.svg",
+    logolink:"#",
+    logomenues:logomenu
+}
+var searchprop={
+    searchword:"123123",
+    width:600
+}
+app_handle.initializeThinMenu(logoprop,searchprop,prop2);
 function printheight(){
     console.log("Now height = "+app_handle.getheight());
 }

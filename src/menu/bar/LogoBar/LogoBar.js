@@ -32,16 +32,17 @@ export default class LogoBar extends Component {
     render() {
         let items = [];
         for(let i=0;i<this.state.logomenues.length;i++){
+            let key = "menuitem"+i;
             if(this.state.logomenues[i].badge!==""){
-                items.push(<label><a href={this.state.logomenues[i].link}>{this.state.logomenues[i].name}<span className="label label-success">{this.state.logomenues[i].badge}</span></a></label>);
+                items.push(<span style={{position:"relative",marginLeft:"50px"} } key={key} className="menulabel" href={this.state.logomenues[i].link} >{this.state.logomenues[i].name}<span className="label label-success">{this.state.logomenues[i].badge}</span></span>);
             }else{
-                items.push(<label><a href={this.state.logomenues[i].link}>{this.state.logomenues[i].name}</a></label>);
+                items.push(<span style={{position:"relative",marginLeft:"50px"}} key={key} className="menulabel" href={this.state.logomenues[i].link} >{this.state.logomenues[i].name}</span>);
             }
 
         }
         return (
             <div >
-                <img src={this.state.logourl} href={this.state.logolink}/>
+                <img src={this.state.logourl} href={this.state.logolink} style={{verticalAlign:"middle"}}/>
                 {items}
             </div>
         );
