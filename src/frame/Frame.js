@@ -70,7 +70,7 @@ export default class Frame extends Component {
 
     render() {
         return (
-            <div  style={{position:"relative",flex:1,width:this.state.winwidth,border: "1px solid #EAEAEA",boxShadow:"2px 2px 1px #EAEAEA"}} onMouseEnter={this.show_head.bind(this)} onMouseLeave={this.hide_head.bind(this)}>
+            <div  style={{position:"relative",flex:1,width:this.state.winwidth,border: "1px solid #EAEAEA",boxShadow:"2px 2px 1px #EAEAEA",background:"#FFFFFF"}} onMouseEnter={this.show_head.bind(this)} onMouseLeave={this.hide_head.bind(this)}>
                 <div  className="frame_head" style={{minWidth:this.state.winwidth}}>
                     <FrameHead ref="frame_head"  />
                 </div>

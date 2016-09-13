@@ -18,12 +18,12 @@ import '../../../css/font-awesome.min.css';
 import '../../../css/flex.css';
 //import '../../../css/bootstrap.css';
 //import '../../../../css/custom.css';
-import './ThinMenu.css';
+import './BillboardMenu.css';
 import SearchBar from "../bar/SearchBar/SearchBar"
 import LogoBar from "../bar/LogoBar/LogoBar"
 import LoginBar from "../bar/LoginBar/LoginBar"
 
-export default class ThinMenu extends Component {
+export default class BillboardMenu extends Component {
 
     constructor(props) {
         super(props);
@@ -31,6 +31,7 @@ export default class ThinMenu extends Component {
             width:1280, //
             height:800,
             halfheight:400,
+            marginleft:400,
             background:""
         };
     }
@@ -48,6 +49,7 @@ export default class ThinMenu extends Component {
     updateSearchBarprop(prop){
         this.refs.searchbar.updatesearchword(prop.searchword);
         this.refs.searchbar.updatewidth(prop.width);
+        this.setState({marginleft:(this.state.width-prop.width-21)/2})
     }
     updateLoginBarprop(prop){
         this.refs.loginbar.updateprop(prop);
@@ -59,11 +61,11 @@ export default class ThinMenu extends Component {
                     <div className="col-md-6"  style={{position:"relative",marginTop:"5px"}}>
                         <LogoBar key ="billmenu_logobar" ref="logobar"/>
                     </div>
-                    <div className="col-md-6" style={{position:"relative"}} >
+                    <div className="col-md-5" style={{position:"relative"}} >
                         <LoginBar key ="billmenu_loginbar" ref="loginbar"/>
                     </div>
                 </div>
-                <div style={{position:"relative",top:this.state.halfheight,marginLeft: "auto", marginRight: "auto"}}>
+                <div style={{position:"absolute",top:this.state.halfheight,left:this.state.marginleft,marginLeft: "auto", marginRight: "auto"}}>
                     <SearchBar key ="billmenu_searchbar" ref="searchbar"/>
                 </div>
             </div>

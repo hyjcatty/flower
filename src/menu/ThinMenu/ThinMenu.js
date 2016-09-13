@@ -32,6 +32,15 @@ export default class ThinMenu extends Component {
 
     constructor(props) {
         super(props);
+        this.state={
+            hide:"block"
+        }
+    }
+    hide(){
+        this.setState({hide:"none"});
+    }
+    show(){
+        this.setState({hide:"block"});
     }
     updateLogoBarprop(prop){
         this.refs.logobar.updatelogo(prop.logourl,prop.logolink);
@@ -46,7 +55,7 @@ export default class ThinMenu extends Component {
     }
     render() {
             return (
-                <div className="col-md-12" style={{position:"fixed",backgroundColor:"#FFF", minHeight:"44px",zIndex:"99"}}>
+                <div className="col-md-12" style={{position:"fixed",backgroundColor:"#FFF", minHeight:"44px",zIndex:"99",display:this.state.hide}}>
 
                     <div className="col-md-4"  style={{position:"relative",marginTop:"5px",zIndex:"99"}}>
                         <LogoBar key ="thinmenu_logobar" ref="logobar"/>
