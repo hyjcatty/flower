@@ -15,7 +15,7 @@ import React, {
  } from 'react-native';*/
 import classNames from 'classnames';
 import '../../../css/font-awesome.min.css';
-import '../../../css/flex.css';
+//import '../../../css/flex.css';
 //import '../../../css/bootstrap.css';
 //import '../../../../css/custom.css';
 import './BillboardMenu.css';
@@ -56,14 +56,15 @@ export default class BillboardMenu extends Component {
     }
     render() {
         return (
-            <div style={{position:"ralative",background:this.state.background,backgroundRepeat:"no-repeat",height:this.state.height,width:this.state.width}}>
-                <div className="col-md-12">
-                    <div className="col-md-6"  style={{position:"relative",marginTop:"5px"}}>
+            <div style={{position:"ralative",background:this.state.background,backgroundRepeat:"no-repeat",height:this.state.height}}>
+                <div>
+                    <div   style={{position:"relative",marginTop:"5px",float:"Left"}}>
                         <LogoBar key ="billmenu_logobar" ref="logobar"/>
                     </div>
-                    <div className="col-md-5" style={{position:"relative"}} >
+                    <div  className="pull-right" style={{position:"relative",float:"Left",marginRight:"50px"}} >
                         <LoginBar key ="billmenu_loginbar" ref="loginbar"/>
                     </div>
+                    <div style={{clear:"both"}}></div>
                 </div>
                 <div style={{position:"absolute",top:this.state.halfheight,left:this.state.marginleft,marginLeft: "auto", marginRight: "auto"}}>
                     <SearchBar key ="billmenu_searchbar" ref="searchbar"/>

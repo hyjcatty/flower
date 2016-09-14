@@ -36,8 +36,8 @@ export default class CommonFooter extends Component {
 
     render() {
         return (
-            <div style={{position:"relative",textAlign:"center",height:this.state.winheight,width:this.state.winwidth,marginTop:"15px"}}>
-                <img src={this.state.url} style={{position:"relative",textAlign:"center",height:this.state.height,width:this.state.width,marginTop:"15px"}}/>
+            <div style={{position:"relative",textAlign:"center",height:this.state.winheight+"px",marginTop:"0px",marginLeft:"0px",marginRight:"0px"}}>
+                <img src={this.state.url} style={{position:"relative",height:this.state.height+"px",width:this.state.width+"px",marginTop:"15px"}}/>
             </div>
         );
     }
