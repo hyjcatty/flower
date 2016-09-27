@@ -20,7 +20,7 @@ import {
     } from 'react-native';*/
 import classNames from 'classnames';
 import '../../../css/font-awesome.min.css';
-//import '../../../css/flex.css';
+import '../../../css/flex.css';
 //import '../../../css/bootstrap.css';
 //import '../../../../css/custom.css';
 import './ThinMenu.css';
@@ -55,18 +55,18 @@ export default class ThinMenu extends Component {
     }
     render() {
             return (
-                <div  style={{position:"fixed",backgroundColor:"#FFF", minHeight:"44px", width:"100%",zIndex:"99",display:this.state.hide}}>
+                <div className="col-md-12" style={{position:"fixed",backgroundColor:"#FFF", minHeight:"44px",zIndex:"99",display:this.state.hide}}>
 
-                    <div  style={{position:"relative",marginTop:"5px",zIndex:"99",float:"left",marginLeft:"50px"}}>
+                    <div className="col-md-4"  style={{position:"relative",marginTop:"5px",zIndex:"99"}}>
                         <LogoBar key ="thinmenu_logobar" ref="logobar"/>
                     </div>
-                    <div style={{position:"relative",zIndex:"99",float:"left",marginLeft:"50px"}}>
+                    <div className="col-md-6" style={{position:"relative",zIndex:"99"}}>
                         <SearchBar key ="thinmenu_searchbar" ref="searchbar"/>
                     </div>
-                    <div className="pull-right" style={{position:"relative",zIndex:"99",float:"left",marginLeft:"50px",marginRight:"50px"}} >
+                    <div className="col-md-1" style={{position:"relative",zIndex:"99"}} >
                         <LoginBar key ="thinmenu_loginbar" ref="loginbar"/>
                     </div>
-                    <div style={{clear:"both"}}></div>
+
                 </div>
             );
     }

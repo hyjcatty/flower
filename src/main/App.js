@@ -25,9 +25,9 @@ class App extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            width:800, //
+            width:1280, //
             height:800,
-            convaswidth:600,
+            convaswidth:1200,
             labelcolumn:7,
             billboardcolumn:4,
             containercolumn:3,
@@ -118,69 +118,54 @@ class App extends Component{
     }
     render() {
         let temp=[];
+
         for(let i=0;i<this.state.containercolumn;i++){
             let key = "singleContainer"+i;
             if(i==0){
-                temp.push(<div key ={key} style={{position:"relative",top:0,marginLeft:0,float: "left",width:"320px"}}><LineContainer  ref={key}/></div>);
+                temp.push(<div key={key}  style={{position:"relative",top:0,marginLeft:0,float: "left",width:"320px"}}><LineContainer ref={key}/></div>);
             }else{
-                temp.push(<div key ={key} style={{position:"relative",top:0,marginLeft:this.state.containergap,float: "left",width:"320px"}}><LineContainer  ref={key} /></div>);
+                temp.push(<div key={key} style={{position:"relative",top:0,marginLeft:this.state.containergap,float: "left",width:"320px"}}><LineContainer ref={key} /></div>);
             }
         }
-        /*
-
-
-
-
-         <div className="titleline" style={{width:this.state.convaswidth+"px",marginTop:"25px",marginLeft:parseInt(this.state.width*0.05)+"px"}}>
-         <hr className="HR-bottom" size="3"/>
-         </div>
-         <div style={{position:"relative"}}>
-         <CommonFooter ref="commonfooter" />
-         </div>
-         <div style={{position:"relative"}}>
-         <Footer ref="footer" />
-         </div>
-
-         */
         return(
-            <div>
+            <div >
                 <div className="thinmenu">
                     <ThinMenu ref="thinmenu" />
                 </div>
                 <div>
                     <BillboardMenu ref="billboardmenu" />
                 </div>
-                <div className="convas" style={{width:this.state.convaswidth+"px",marginLeft:parseInt(this.state.width*0.05)+"px",top:"15px"}}>
-                    <div style={{position:"relative",width:this.state.convaswidth+"px",height:50,}}>
-                        <div className="titleline" style={{width:this.state.linelength+"px"}}>
+                <div className="convas" style={{width:this.state.convaswidth,marginLeft:parseInt(this.state.width*0.05)+"px",top:"15px"}}>
+                    <div style={{position:"relative",width:this.state.convaswidth,height:50,}}>
+                        <div className="titleline" style={{width:this.state.linelength}}>
                             <hr className="HR-map" size="3"/>
                         </div>
-                        <div style={{position:"relative",width:100+"px",textAlign:"center",float:"left"}}>HOT SEARCH
+                        <div style={{position:"relative",width:100,float:"left"}}>HOT SEARCH
                         </div>
-                        <div className="titleline" style={{width:this.state.linelength+"px"}}>
-                            <hr className="HR-map" size="3"/>
-                        </div>
-                        <div style={{clear:"both"}}></div>
-                    </div>
-                    <div style={{position:"relative",height:150+"px"}}>
-                    </div>
-                    <div style={{position:"relative",width:this.state.convaswidth+"px",height:50+"px"}}>
-                        <div className="titleline" style={{width:this.state.linelength+"px"}}>
-                            <hr className="HR-map" size="3"/>
-                        </div>
-                        <div style={{position:"relative",width:100+"px",textAlign:"center",float:"left"}}>SPECIAL
-                        </div>
-                        <div className="titleline" style={{width:this.state.linelength+"px"}}>
+                        <div className="titleline" style={{width:this.state.linelength}}>
                             <hr className="HR-map" size="3"/>
                         </div>
                         <div style={{clear:"both"}}></div>
                     </div>
-                    <div style={{position:"relative",width:this.state.convaswidth+"px"}}>
+                    <div style={{position:"relative",height:150}}>
+                    </div>
+                    <div style={{position:"relative",width:this.state.convaswidth,height:50,}}>
+                        <div className="titleline" style={{width:this.state.linelength}}>
+                            <hr className="HR-map" size="3"/>
+                        </div>
+                        <div style={{position:"relative",width:100,float:"left"}}>SPECIAL
+                        </div>
+                        <div className="titleline" style={{width:this.state.linelength}}>
+                            <hr className="HR-map" size="3"/>
+                        </div>
+                        <div style={{clear:"both"}}></div>
+                    </div>
+                    <div style={{position:"relative",width:this.state.convaswidth}}>
                         {temp}
                         <div style={{clear:"both"}}></div>
                     </div>
                 </div>
-                <div className="titleline" style={{width:this.state.convaswidth+"px",marginTop:"25px",marginLeft:parseInt(this.state.width*0.05)+"px"}}>
+                <div className="titleline" style={{width:this.state.convaswidth,marginTop:"25px",marginLeft:parseInt(this.state.width*0.05)+"px"}}>
                     <hr className="HR-bottom" size="3"/>
                 </div>
                 <div style={{position:"relative"}}>
@@ -189,7 +174,6 @@ class App extends Component{
                 <div style={{position:"relative"}}>
                     <Footer ref="footer" />
                 </div>
-
             </div>
         );
     }
@@ -200,7 +184,27 @@ var react_element = <App/>;
 var app_handle = ReactDOM.render(react_element,document.getElementById('app'));
 
 app_handle.initializeSize(winWidth);
+app_handle.initializeContainer("tempkey",320,20);
+for(let i=0;i<32;i++){
+    let radomnumber = GetRandomNum(1,3);
+    let prop = {
+        pic_url:"./img/"+radomnumber+".png",
+        pic_width:320,
+        pic_height:240,
+        winwidth:320,
+        winheight:240,
+        tags:["test1","test2"],
+        label:"sfadfasfasffsffsfasfasfasdf",
+        username:"guest",
+        pictureid:12345,
+        faverate:true,
+        ownerurl:"#",
+        ownerpic:"./owner/owner.jpg",
+        ownerlabel:"total 25 pics"
+    };
+    app_handle.updateprop(prop);
 
+}
 var logomenu = [];
 for(let i=0;i<3;i++){
     let badge = "";
@@ -239,45 +243,18 @@ var searchprop={
 app_handle.initializeThinMenu(logoprop,searchprop,prop2);app_handle.hideThinMenu();
 app_handle.initializeBillboardMenu(winWidth,winWidth/3,logoprop,searchprop,prop2,"url(./img/billboard.png)");
 
-
-
-
-app_handle.initializeContainer("tempkey",320,20);
-for(let i=0;i<32;i++){
-    let radomnumber = GetRandomNum(1,3);
-    let prop = {
-        pic_url:"./img/"+radomnumber+".png",
-        pic_width:320,
-        pic_height:240,
-        winwidth:320,
-        winheight:240,
-        tags:["test1","test2"],
-        label:"sfadfasfasffsffsfasfasfasdf",
-        username:"guest",
-        pictureid:12345,
-        faverate:true,
-        ownerurl:"#",
-        ownerpic:"./owner/owner.jpg",
-        ownerlabel:"total 25 pics"
-    };
-    app_handle.updateprop(prop);
-
-}
-
-
 var footerprop={
     url:"./img/end.png",
     width:238,
     height:80,
     winwidth:winWidth,
-    winheight:110
+    winheight:80
 }
 app_handle.initializeCommonFooter(footerprop);
 var footerlabel=[];
 footerlabel.push("Copy right by hyj");
 footerlabel.push("2016");
 app_handle.initializeFooter(footerlabel);
-app_handle.showThinMenu();
 function printheight(){
     //console.log("Now height = "+app_handle.getheight());
 }

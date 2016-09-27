@@ -23,12 +23,12 @@ export default class Footer extends Component {
     render() {
         let text=[];
         for(let i=0;i<this.state.labels.length;i++){
-            text.push(<a key={"footerline"+i} style={{position:"relative",textAlign:"center",fontSize:12,color:"#FFF",marginTop:"5px"}}>{this.state.labels[i]}</a>);
+            let key = "footline"+i;
+            text.push(<p key={key} className="foot_line" >{this.state.labels[i]}</p>);
         }
         return (
-            <div style={{position:"relative",height:"100%",textAlign:"center",marginTop:"45px",background:"#286090"}}>
+            <div style={{position:"relative",textAlign:"center",marginTop:"30px",background:"#286090"}}>
                 {text}
-                <div style={{clear:"both"}}></div>
             </div>
         );
     }

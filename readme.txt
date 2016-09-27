@@ -9,12 +9,13 @@ Change your work DIR to source folder.
 Keep your internet link fluent, or you can use the set the npm mirror in your country.
 1) Prepare the environment for node_modules, command:
 npm install --save-dev
+2) for debug the code, use command:
+npm run start
+then open the browser and go to webside: http://127.0.0.1:8080/webpack-dev-server/
+u can get the debug version of code
 2) build the source, command:
 npm run build
-3) copy the useful resource to the deliver folder, command:
-gulp
-
-U can get the output in fold /dist.
+Note: this version will include the source-map.
 
 Directory structure:
 ----+-build         // save the js & resource file after they are built
@@ -24,7 +25,7 @@ Directory structure:
     +-node_modules  // Node.js plugin folder, all dependence will be save in it after npm install
     +-src           // source folder
     +-vendor        // 3rd recource folder which will not be compiled
-    --gulpfile.js   // gulp command configuration
+    --gulpfile.js   // gulp command configuration, not use yet
     --index.html    // entry of the UI, will be compiled
     --package.json  // npm configuration file
     --readme.ext    // help fil
